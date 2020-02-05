@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in add_gitignore.gemspec
+# Specify your gem's dependencies in gitignore.gemspec
 gemspec
 
 gem "rake", "~> 12.0"

@@ -1,20 +1,6 @@
 #!ruby
 
-require 'http'
-
-module Gitignore
-  class << self
-    def list
-      response = HTTP.get('https://www.gitignore.io/api/list')
-      response.body.to_s.gsub(/\n/, ',').split(',')
-    end
-
-    def generate(envs = [])
-      response = HTTP.get("https://www.gitignore.io/api/#{envs.join(',')}")
-      response.body.to_s
-    end
-  end
-end
+require "gitignore"
 
 command = ARGV[0]
 
@@ -29,5 +15,11 @@ when "generate", "g"
   puts Gitignore.generate(envs)
 
 else
-  puts "HELP"
+  puts <<~HELP
+Usage: #{"ile.basename($0)} [command] [options]
+
+Commonly used command are:
+       list :     list all environment options
+   generate :     generate a .gitignore file by all environment that you choose
+  HELP
 end
