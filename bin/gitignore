@@ -1,0 +1,33 @@
+#!ruby
+
+require 'http'
+
+module Gitignore
+  class << self
+    def list
+      response = HTTP.get('https://www.gitignore.io/api/list')
+      response.body.to_s.gsub(/\n/, ',').split(',')
+    end
+
+    def generate(envs = [])
+      response = HTTP.get("https://www.gitignore.io/api/#{envs.join(',')}")
+      response.body.to_s
+    end
+  end
+end
+
+command = ARGV[0]
+
+case command
+when "list"
+  Gitignore.list.each do |env|
+    puts " - #{env}"
+  end
+
+when "generate", "g"
+  envs = ARGV[1..-1]
+  puts Gitignore.generate(envs)
+
+else
+  puts "HELP"
+end
