@@ -1,7 +1,7 @@
 require_relative 'lib/gitignore/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "gitignore"
+  spec.name          = "gitignore-cli"
   spec.version       = Gitignore::VERSION
   spec.authors       = ["Daniel Vinciguerra"]
   spec.email         = ["daniel.vinciguerra@bivee.com.br"]
