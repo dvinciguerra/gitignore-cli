@@ -10,6 +10,7 @@ You will need to have `ruby >= 2.3`, or running on Docker.
 
 ```ruby
     $ gem install gitignore-cli
+```
 
 ## Usage
 
