@@ -6,14 +6,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Daniel Vinciguerra"]
   spec.email         = ["daniel.vinciguerra@bivee.com.br"]
 
-  spec.summary       = %q{A ruby cli tool that use gitignore.io to generate your gitignore files}
-  spec.description   = %q{A ruby cli tool that use gitignore.io to generate your gitignore files}
-  spec.homepage      = "https://github.com/dvinciguerra/gitignore"
+  spec.summary       = %q{Simple Ruby CLI to generate .gitignore files}
+  spec.description   = %q{A Ruby CLI tool that use fantastic gitignore.io to generate .gitignore files to your projects}
+  spec.homepage      = "https://github.com/dvinciguerra/gitignore-cli"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/dvinciguerra/gitignore"
+  spec.metadata["source_code_uri"] = "https://github.com/dvinciguerra/gitignore-cli"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'http', '~> 4.3', '>= 4.3.0'
+  spec.add_runtime_dependency 'tty-prompt', '~> 0.20.0'
 end
