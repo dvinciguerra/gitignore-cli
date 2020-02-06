@@ -16,7 +16,7 @@ when "generate", "g"
 
 else
   puts <<~HELP
-Usage: #{"ile.basename($0)} [command] [options]
+Usage: #{File.basename($0)} [command] [options]
 
 Commonly used command are:
        list :     list all environment options
