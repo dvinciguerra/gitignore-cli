@@ -23,6 +23,11 @@ when "create"
     "Select envs to generate the .gitignore?", env_list, filter: true
   )
 
+  unless results.any?
+    puts "No environment selected... exiting!"
+    exit
+  end
+
   file = File.open('.gitignore', 'w')
   file.write(Gitignore.generate(results))
   file.close
