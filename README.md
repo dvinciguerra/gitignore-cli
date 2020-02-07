@@ -30,6 +30,13 @@ The command `list` will return all available environments.
     $ gitignore list
 ```
 
+#### create
+
+Generates the .gitignore output using an interactive term ui.
+
+```shellscript
+    $ gitignore create
+```
 
 
 #### generate
