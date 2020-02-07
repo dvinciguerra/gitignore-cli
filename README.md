@@ -5,46 +5,46 @@
 
 Provides a simple CLI that uses the fantastic `gitignore.io` tool to generate `.gitignore` files for your project.
 
-[![asciicast](https://asciinema.org/a/299023.svg)](https://asciinema.org/a/299023)
+[![asciicast](https://asciinema.org/a/299023.svg)](https://asciinema.org/a/299023?autoplay=1&speed=2)
 
 
 ## Installation
 
 You will need to have `ruby >= 2.3`, or running on Docker.
 
-```ruby
-    $ gem install gitignore-cli
+```shellscript
+$ gem install gitignore-cli
 ```
 
 ## Usage
 
 You can use the following commands:
 
-#### list
+#### gitignore list
 
 The command `list` will return all available environments.
 
 **Example:**
 
 ```shellscript
-    $ gitignore list
+$ gitignore list
 ```
 
-#### create
+#### gitignore create
 
 Generates the .gitignore output using an interactive term ui.
 
 ```shellscript
-    $ gitignore create
+$ gitignore create
 ```
 
 
-#### generate
+#### gitignore generate [environments]
 
 Generates the .gitignore output to stdout using all environments that you choose.
 
 ```shellscript
-    $ gitignore generate ruby vim node > .gitignore
+$ gitignore generate ruby vim node > .gitignore
 ```
 
 ## Author
