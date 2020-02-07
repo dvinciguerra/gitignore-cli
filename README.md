@@ -1,8 +1,12 @@
 # gitignore-cli
 
 [![Gem Version](https://badge.fury.io/rb/gitignore-cli.svg)](https://badge.fury.io/rb/gitignore-cli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 Provides a simple CLI that uses the fantastic `gitignore.io` tool to generate `.gitignore` files for your project.
+
+[![asciicast](https://asciinema.org/a/299023.svg)](https://asciinema.org/a/299023)
+
 
 ## Installation
 
