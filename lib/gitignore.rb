@@ -1,4 +1,6 @@
-require "gitignore/version"
+# frozen_string_literal: true
+
+require 'gitignore/version'
 
 require 'http'
 
