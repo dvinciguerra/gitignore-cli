@@ -1,46 +1,52 @@
 #!ruby
+# frozen_string_literal: true
 
-require "gitignore"
-require "tty-prompt"
+require 'thor'
+require 'gitignore'
+require 'tty-prompt'
 
-command = ARGV[0]
+module Gitignore
+  class CLI < Thor
+    desc 'list', 'list all environment options'
+    def list
+      formatted_envs = Gitignore.list.map { |env| " - #{env}\n" }.join('')
 
-case command
-when "list"
-  Gitignore.list.each do |env|
-    puts " - #{env}"
+      puts <<~OUTPUT
+        Available Environments:
+        #{formatted_envs}
+
+        Now you can generate your .gitignore file using choosed envs:
+          $ gitignore generate vim ruby node > .gitignore
+      OUTPUT
+    end
+
+    desc 'generate', 'generate a .gitignore and print to STDOUT'
+    def generate(*envs)
+      puts Gitignore.generate(envs)
+    end
+
+    desc 'create', 'generate a .gitignore file using a interactive term ui'
+    option :out, type: :string, default: '.gitignore', desc: 'OUTPUT_FILE'
+    def create
+      prompt = TTY::Prompt.new
+
+      env_list = Gitignore.list
+      results = prompt.multi_select(
+        'Select envs to generate the .gitignore?', env_list, filter: true
+      )
+
+      unless results.any?
+        puts 'No environment selected... exiting!'
+        exit
+      end
+
+      file = File.open(options[:out], 'w')
+      file.write(Gitignore.generate(results))
+      file.close
+
+      puts 'The .gitignore is generated!'
+    end
   end
-
-when "generate", "g"
-  envs = ARGV[1..-1]
-  puts Gitignore.generate(envs)
-
-when "create"
-  prompt = TTY::Prompt.new
-
-  env_list = Gitignore.list
-  results = prompt.multi_select(
-    "Select envs to generate the .gitignore?", env_list, filter: true
-  )
-
-  unless results.any?
-    puts "No environment selected... exiting!"
-    exit
-  end
-
-  file = File.open('.gitignore', 'w')
-  file.write(Gitignore.generate(results))
-  file.close
-
-  puts "The .gitignore is generated!"
-
-else
-  puts <<~HELP
-Usage: #{File.basename($0)} [command] [options]
-
-Commonly used command are:
-       list :     list all environment options
-     create :     generate a .gitignore file using a interactive term ui
-   generate :     generate a .gitignore file by all environment that you choose
-  HELP
 end
+
+Gitignore::CLI.start(ARGV)
