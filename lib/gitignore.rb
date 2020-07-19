@@ -8,7 +8,7 @@ module Gitignore
   class Error < StandardError; end
 
   class << self
-    GITIGNORE_HOST = ENV['GITIGNORE_HOST'] || 'https://www.gitignore.io'
+    GITIGNORE_HOST = ENV['GITIGNORE_HOST'] || 'https://www.toptal.com/developers/gitignore'
 
     def list
       response = HTTP.get("#{GITIGNORE_HOST}/api/list")
