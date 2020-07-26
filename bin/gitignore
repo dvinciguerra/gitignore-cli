@@ -28,7 +28,11 @@ module Gitignore
     desc 'create', 'generate a .gitignore file using a interactive term ui'
     option :out, type: :string, default: '.gitignore', desc: 'OUTPUT_FILE'
     def create
-      prompt = TTY::Prompt.new
+      prompt = TTY::Prompt.new(interrupt: :exit)
+
+      prompt.on(:keyescape) do
+        exit
+      end
 
       env_list = Gitignore.list
       results = prompt.multi_select(
