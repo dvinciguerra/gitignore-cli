@@ -1,4 +1,4 @@
-# gitignore-cli
+# 🛑 gitignore-cli
 
 [![Gem Version](https://badge.fury.io/rb/gitignore-cli.svg)](https://badge.fury.io/rb/gitignore-cli)
 [![Maintainability](https://api.codeclimate.com/v1/badges/48ed1e9f5ee6d37590f5/maintainability)](https://codeclimate.com/github/dvinciguerra/gitignore-cli/maintainability)
