@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'http', '~> 4.3', '>= 4.3.0'
+  spec.add_runtime_dependency 'http', '>= 4.3.0', '< 6.0'
   spec.add_runtime_dependency 'thor', '~> 1.0', '>= 1.0.1'
   spec.add_runtime_dependency 'tty-prompt', '>= 0.20', '< 0.24'
 end
